@@ -1,0 +1,21 @@
+{
+  "jspm": {
+    "directories": {
+      "baseURL": "static",
+      "packages": "static/src/libs"
+    },
+    "dependencies": {
+      "angular": "github:angular/bower-angular@^1.6.4",
+      "angular-moment": "npm:angular-moment@^1.0.1",
+      "angular-sanitize": "github:angular/bower-angular-sanitize@^1.6.4",
+      "lodash": "npm:lodash@^4.17.4",
+      "siddii/angular-timer": "github:siddii/angular-timer@^1.3.5",
+      "videogular/bower-videogular": "github:videogular/bower-videogular@^1.4.4"
+    },
+    "devDependencies": {}
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.12"
+  },
+  "dependencies": {}
+}

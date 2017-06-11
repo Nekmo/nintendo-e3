@@ -1,0 +1,10 @@
+{
+  "npm:moment@2.18.1": {},
+  "github:angular/bower-angular@1.6.4": {},
+  "github:siddii/angular-timer@1.3.5": {
+    "angular": "jspm:angular@^1.4.1",
+    "moment": "jspm:moment@^2.10.3",
+    "humanize-duration": "jspm:humanize-duration@^3.0.0"
+  },
+  "github:EvanHahn/HumanizeDuration.js@3.10.0": {}
+}

@@ -1,0 +1,62 @@
+<html ng-app="e3App">
+    <head>
+        <title></title>
+        <meta content="">
+        <style></style>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="static/src/libs/github/angular/bower-angular@1.6.4/angular-csp.css">
+        <link rel="stylesheet" href="static/src/theme/default/style.css">
+    </head>
+    <body ng-controller="e3Ctrl">
+        <section class="header">
+            <div class="logo"></div>
+        </section>
+        <div class="full-content" ng-cloak>
+            <section class="content">
+                <div class="flex-row">
+                    <div class="info">
+                        <div class="info-content">
+                            <div id="countdown">
+                                <span>
+                                    <timer interval="1000" end-time="scope.eventDatetime">
+                                        {{hours|numberFixedLen:2}}:{{minutes|numberFixedLen:2}}:
+                                        {{seconds|numberFixedLen:2}}
+                                    </timer>
+                                    <span class="dot">.</span>
+                                    <span class="millis">{{ millis|numberFixedLen:3 }}</span>
+                                </span>
+                            </div>
+                            <p class="title">El evento comenzará a las 18:00</p>
+                            <p>
+                                del día 13 de junio de 2017 hora peninsular (España), y actualmente, son las
+                                <span class="dt">{{dt | amDateFormat:' HH:mm:ss'}}</span>.
+                                Además, son las
+                                <span class="dt">{{dt | amUtcOffset:'-0700' | amDateFormat:' HH:mm:ss'}}</span>
+                                en Los Ángeles (California, EEUU), lugar del evento.
+                                Mientras, son las
+                                <span class="dt">{{dt | amUtcOffset:'+0900' | amDateFormat:' HH:mm:ss'}}</span>
+                                en Tokio (Japón).
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div id="mario"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div ng-controller="mediaCtrl">
+            <videogular vg-player-ready="scope.onPlayerReady($API)" vg-auto-play="true">
+                <vg-media vg-src="config.sources" vg-native-controls="true">
+                </vg-media>
+            </videogular>
+        </div>
+
+        <script src="static/src/libs/system.js"></script>
+        <script src="static/src/libs/npm/moment@2.18.1/moment.js"></script>
+        <script src="static/config.js"></script>
+        <script>
+            SystemJS.import('src/app.module');
+        </script>
+    </body>
+</html>

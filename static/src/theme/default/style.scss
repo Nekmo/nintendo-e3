@@ -1,0 +1,116 @@
+@font-face {
+    font-family: sourcesanspro-bold;
+    src: url("font/sourcesanspro-bold.ttf");
+}
+
+body {
+    margin: 0;
+    font-size: 1.2vw;
+    font-family: Roboto,sans-serif;
+}
+
+p {
+    margin: 0;
+}
+
+section.header {
+    position: fixed;
+    padding: .4em;
+    width: 100%;
+
+    background: #E60012;
+
+    .logo {
+        background: url("img/logo.svg");
+        width: 662px;
+        height: 80px;
+        background-repeat: no-repeat;
+        margin: auto;
+    }
+}
+
+#mario {
+    background: url('img/mario.png');
+    width: 562px;
+    height: 455px;
+    //position: absolute;
+    //bottom: 0;
+    //right: 0;
+}
+
+#countdown {
+    background: #E60012;
+    height: 200px;
+    margin: auto auto;
+    text-align: center;
+
+    > span {
+        color: #ffffff;
+        text-shadow: 5px 5px #cf0010;
+        font-size: 500%;
+        font-family: sourcesanspro-bold, serif;
+
+        display: inline-block;
+        top: 50%;
+        transform: translateY(-50%);
+        position: relative;
+    }
+
+    timer {
+        margin-right: -20px;
+        display: inline-block;
+    }
+
+    .millis {
+        margin-left: -20px;
+        display: inline-block;
+    }
+}
+
+div.full-content {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+    background: url(img/checkered-ptn.svg) repeat-x;
+    background-size: 5vw;
+    background-position: bottom;
+
+    //.content {
+    //    position: relative;
+    //    max-width: 80vw;
+    //    width: 63em;
+    //    height: 100%;
+    //    margin: auto;
+    //}
+}
+
+.flex-row {
+    display: flex;
+    align-items: flex-end;
+}
+
+.info {
+    width: 35em;
+    color: #484848;
+
+    .info-content {
+        min-height: 30em;
+    }
+
+    p.title {
+        font-size: 1.77em;
+        font-weight: 700;
+        margin-top: 1em;
+    }
+
+    p {
+        margin-top: .5em;
+    }
+
+    .dt {
+        color: #272727;
+    }
+}
