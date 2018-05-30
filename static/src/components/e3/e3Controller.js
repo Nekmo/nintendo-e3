@@ -35,6 +35,7 @@ Promise.all([
 
         $scope.updateDt = function () {
             $scope.dt = new Date();
+            $scope.dtTime = new Date().getTime();
             $timeout($scope.updateDt, 1000);
         };
 

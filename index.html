@@ -1,11 +1,12 @@
 <html ng-app="e3App">
     <head>
-        <title></title>
+        <title>Nintendo E3</title>
         <meta content="">
-        <style></style>
+        <meta charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" href="static/src/libs/github/angular/bower-angular@1.6.4/angular-csp.css">
         <link rel="stylesheet" href="static/src/theme/default/style.css">
+        <link rel="stylesheet" href="static/src/components/media/player.css">
     </head>
     <body ng-controller="e3Ctrl">
         <section class="header">
@@ -17,18 +18,37 @@
                     <div class="info">
                         <div class="info-content">
                             <div id="countdown">
-                                <span>
+                                <span ng-if="eventDatetime - dtTime > 86400000" class="has-days">
+
                                     <timer interval="1000" end-time="scope.eventDatetime">
-                                        {{hours|numberFixedLen:2}}:{{minutes|numberFixedLen:2}}:
-                                        {{seconds|numberFixedLen:2}}
+                                        <span class="date">{{hours|numberFixedLen:2}} días</span>
+
+                                        <span class="time">{{hours|numberFixedLen:2}}:{{minutes|numberFixedLen:2}}:{{seconds|numberFixedLen:2}}</span>
                                     </timer>
                                     <span class="dot">.</span>
                                     <span class="millis">{{ millis|numberFixedLen:3 }}</span>
                                 </span>
+                                <span ng-if="eventDatetime - dtTime < 86400000 && eventDatetime > dtTime">
+                                    <timer interval="1000" end-time="scope.eventDatetime">
+                                        {{hours|numberFixedLen:2}}:{{minutes|numberFixedLen:2}}:{{seconds|numberFixedLen:2}}
+                                    </timer>
+                                    <span class="dot">.</span>
+                                    <span class="millis">{{ millis|numberFixedLen:3 }}</span>
+                                </span>
+                                <span ng-if="eventDatetime < dtTime">
+                                    ¡Allá vamos!
+                                </span>
                             </div>
-                            <p class="title">El evento comenzará a las 18:00</p>
+                            <p class="title" ng-if="eventDatetime - dtTime > 86400000">
+                                El evento comenzará el día 12 de junio
+                            </p>
+                            <p class="title" ng-if="eventDatetime - dtTime < 86400000">
+                                El evento comenzará a las 18:00
+                            </p>
                             <p>
-                                del día 13 de junio de 2017 hora peninsular (España), y actualmente, son las
+                                <span ng-if="eventDatetime - dtTime > 86400000">a las 18:00 (6 de la tarde) </span>
+                                <span ng-if="eventDatetime - dtTime < 86400000">del día 12 de junio de 2018 </span>
+                                hora peninsular (España), y actualmente, son las
                                 <span class="dt">{{dt | amDateFormat:' HH:mm:ss'}}</span>.
                                 Además, son las
                                 <span class="dt">{{dt | amUtcOffset:'-0700' | amDateFormat:' HH:mm:ss'}}</span>
@@ -45,11 +65,20 @@
                 </div>
             </section>
         </div>
-        <div ng-controller="mediaCtrl">
-            <videogular vg-player-ready="scope.onPlayerReady($API)" vg-auto-play="true">
+        <div ng-controller="mediaCtrl" ng-class="{'fullscreen': scope.fullscreen}">
+            <videogular vg-player-ready="scope.onPlayerReady($API)" vg-auto-play="true" class="video"
+                        vg-complete="scope.onCompleteVideo()">
                 <vg-media vg-src="config.sources" vg-native-controls="true">
                 </vg-media>
             </videogular>
+
+            <div ng-controller="timeleftCtrl">
+                <videogular vg-auto-play="true" vg-player-ready="onPlayerReady($API)"
+                            vg-complete="onCompleteAudio()">
+                    <vg-media vg-src="config.sources" vg-native-controls="true">
+                    </vg-media>
+                </videogular>
+            </div>
         </div>
 
         <script src="static/src/libs/system.js"></script>

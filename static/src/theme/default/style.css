@@ -18,7 +18,7 @@ section.header {
   section.header .logo {
     background: url("img/logo.svg");
     width: 662px;
-    height: 80px;
+    height: 60px;
     background-repeat: no-repeat;
     margin: auto; }
 
@@ -47,6 +47,18 @@ section.header {
   #countdown .millis {
     margin-left: -20px;
     display: inline-block; }
+  #countdown .has-days .time, #countdown .has-days .dot, #countdown .has-days .millis {
+    font-size: 50%; }
+
+body.is-fullscreen #countdown {
+  position: fixed;
+  bottom: 8em;
+  right: 0;
+  z-index: 1000000;
+  padding-left: 3em;
+  padding-right: 3em;
+  font-size: 80%;
+  height: 150px; }
 
 div.full-content {
   display: flex;

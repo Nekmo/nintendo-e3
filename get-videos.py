@@ -11,7 +11,11 @@ def get_videos():
         video = os.path.join('videos', video_filename)
         duration = check_output(['/usr/bin/ffprobe', '-i', video, '-show_entries', 'format=duration', '-v', 'quiet',
                                  '-of', 'csv=p=0']).decode('utf-8').strip()
-        videos.append({'file': video_filename, 'duration': float(duration)})
+        try:
+            videos.append({'file': video_filename, 'duration': float(duration), 'fullscreen': False})
+        except ValueError:
+            print('error: {}'.format(video_filename))
+            pass
     print(dumps(videos, sort_keys=True, indent=4))
 
 
