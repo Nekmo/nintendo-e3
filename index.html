@@ -21,7 +21,7 @@
                                 <span ng-if="eventDatetime - dtTime > 86400000" class="has-days">
 
                                     <timer interval="1000" end-time="scope.eventDatetime">
-                                        <span class="date">{{hours|numberFixedLen:2}} días</span>
+                                        <span class="date">{{days|numberFixedLen:2}} días</span>
 
                                         <span class="time">{{hours|numberFixedLen:2}}:{{minutes|numberFixedLen:2}}:{{seconds|numberFixedLen:2}}</span>
                                     </timer>
