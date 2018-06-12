@@ -1,5 +1,7 @@
 ![Captura](screenshot.png)
 
+Proyecto para E3 2018. ¡Nos vemos en el 2019!
+
 # Nintendo E3
 Cuenta atrás hasta el Nintendo E3 del presente año. Características:
 
