@@ -27,6 +27,8 @@ var TIMELEFT_AUDIOS = [
     {timeleft: 5, file: '5secs.mp3'}
 ];
 
+var started = false;
+
 
 Promise.all([
     require('src/app.module'),
@@ -107,6 +109,16 @@ Promise.all([
         $scope.onPlayerReady = function(API) {
             $scope.videoAPI = API;
 
+            if(!started) {
+                API.setVolume(0);
+
+                function restoreVolume() {
+                    API.setVolume(100);
+                    document.removeEventListener('click', restoreVolume);
+                    document.getElementById('unmuted').style.display = 'none';
+                }
+                document.addEventListener('click', restoreVolume);
+            }
             API.seekTime(currentVideoSeek.seek);
             API.play();
         };

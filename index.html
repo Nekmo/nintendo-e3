@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="static/src/components/media/player.css">
     </head>
     <body ng-controller="e3Ctrl">
+        <div id="unmuted">🔇 Sin sonido</div>
+
         <section class="header">
             <div class="logo"></div>
         </section>
@@ -73,7 +75,7 @@
             </videogular>
 
             <div ng-controller="timeleftCtrl">
-                <videogular vg-auto-play="true" vg-player-ready="onPlayerReady($API)"
+                <videogular vg-player-ready="onPlayerReady($API)"
                             vg-complete="onCompleteAudio()">
                     <vg-media vg-src="config.sources" vg-native-controls="true">
                     </vg-media>

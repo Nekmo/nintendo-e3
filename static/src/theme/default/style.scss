@@ -132,3 +132,15 @@ div.full-content {
         color: #272727;
     }
 }
+
+#unmuted {
+    position: fixed;
+    width: 600px;
+    top: 100px;
+    background: whitesmoke;
+    z-index: 1000000;
+    left: 50%;
+    margin-left: -300px;
+    font-size: 3em;
+    text-align: center;
+}
