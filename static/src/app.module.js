@@ -3,7 +3,7 @@
  */
 
 
-var eventDatetime = new Date('2018-06-12 18:00');
+var eventDatetime = new Date('2019-06-11 18:00');
 
 Promise.all([
     require('angular'),
