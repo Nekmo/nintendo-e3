@@ -110,10 +110,10 @@ Promise.all([
             $scope.videoAPI = API;
 
             if(!started) {
-                API.setVolume(0);
+                API.mediaElement[0].muted = true;
 
                 function restoreVolume() {
-                    API.setVolume(100);
+                    API.mediaElement[0].muted = false;
                     document.removeEventListener('click', restoreVolume);
                     document.getElementById('unmuted').style.display = 'none';
                 }
