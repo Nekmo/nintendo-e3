@@ -135,7 +135,7 @@ var playlist = [
     },
     {
         "duration": 70.124256,
-        "file": "#Pokemon20 Pok\u00e9mon Super Bowl Commercial.mp4",
+        "file": "Pokemon20 Pok\u00e9mon Super Bowl Commercial.mp4",
         "fullscreen": true
     },
     {
