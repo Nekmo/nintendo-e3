@@ -108,6 +108,7 @@ Promise.all([
             $scope.videoAPI = API;
 
             API.seekTime(currentVideoSeek.seek);
+            API.play();
         };
 
         $scope.onCompleteVideo = function () {
