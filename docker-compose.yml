@@ -14,3 +14,4 @@ services:
       - ./conf/nginx/conf.d:/etc/nginx/conf.d
     env_file:
       - .env
+    command: [ 'nginx-debug', '-g', 'daemon off;']
