@@ -1,0 +1,16 @@
+# docker-compose Nginx
+version: '2'
+
+services:
+  nginx:
+    image: nginx
+    restart: on-failure
+    ports:
+      - 80
+    expose:
+      - 80
+    volumes:
+      - .:/code
+      - ./conf/nginx/conf.d:/etc/nginx/conf.d
+    env_file:
+      - .env
