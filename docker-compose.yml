@@ -1,5 +1,5 @@
 # docker-compose Nginx
-version: '2'
+version: '3'
 
 services:
   nginx:
@@ -14,4 +14,10 @@ services:
       - ./conf/nginx/conf.d:/etc/nginx/conf.d
     env_file:
       - .env
+    networks:
+      - nginx-proxy
     command: [ 'nginx-debug', '-g', 'daemon off;']
+networks:
+  nginx-proxy:
+    external:
+      name: nginx-proxy
