@@ -17,5 +17,7 @@
   "devDependencies": {
     "browser-sync": "^2.18.12"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jspm": "^0.16.53"
+  }
 }
