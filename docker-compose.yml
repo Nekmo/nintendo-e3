@@ -21,7 +21,9 @@ services:
     image: node
     volumes:
       - .:/code
-    entrypoint: ['npm', 'install']
+    build:
+      context: .
+      dockerfile: Dockerfile
 networks:
   nginx-proxy:
     external: yes
