@@ -17,6 +17,11 @@ services:
     networks:
       - nginx-proxy
     command: [ 'nginx-debug', '-g', 'daemon off;']
+  node:
+    image: node
+    volumes:
+      - .:/code
+    entrypoint: ['npm', 'install']
 networks:
   nginx-proxy:
     external: yes
