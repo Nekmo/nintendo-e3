@@ -1,4 +1,4 @@
 FROM node
 
 WORKDIR /code
-ENTRYPOINT ['./entrypoint.sh']
+ENTRYPOINT ["./entrypoint.sh"]
