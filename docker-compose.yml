@@ -14,8 +14,15 @@ services:
       - ./conf/nginx/conf.d:/etc/nginx/conf.d
     env_file:
       - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=web-router"
+
+      - "traefik.http.routers.paste.rule=Host(`e3.nek.moe`)"
+      - "traefik.http.routers.paste.entrypoints=websecure"
+      - "traefik.http.routers.paste.tls.certresolver=certbot"
     networks:
-      - nginx-proxy
+      - web-router
     command: [ 'nginx-debug', '-g', 'daemon off;']
   node:
     image: node
@@ -25,6 +32,6 @@ services:
       context: .
       dockerfile: Dockerfile
 networks:
-  nginx-proxy:
+  web-router:
     external: yes
-    name: nginx-proxy
+    name: web-router
