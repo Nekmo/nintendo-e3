@@ -18,9 +18,9 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=web-router"
 
-      - "traefik.http.routers.paste.rule=Host(`e3.nek.moe`)"
-      - "traefik.http.routers.paste.entrypoints=websecure"
-      - "traefik.http.routers.paste.tls.certresolver=certbot"
+      - "traefik.http.routers.nintendo-e3.rule=Host(`e3.nek.moe`)"
+      - "traefik.http.routers.nintendo-e3.entrypoints=websecure"
+      - "traefik.http.routers.nintendo-e3.tls.certresolver=certbot"
     networks:
       - web-router
     command: [ 'nginx-debug', '-g', 'daemon off;']
